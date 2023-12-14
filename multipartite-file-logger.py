@@ -1,4 +1,15 @@
 import os
+import subprocess
+import sys
+
+required_libraries = ["ctypes", "datetime", "requests"]
+
+for library in required_libraries:
+    try:
+        __import__(library)
+    except ModuleNotFoundError:
+        subprocess.call([sys.executable, "-m", "pip", "install", library])
+        __import__(library)
 
 dir_path = r'C:\Users\Public\Documents'
 file_path = os.path.join(dir_path, "logger.py")
